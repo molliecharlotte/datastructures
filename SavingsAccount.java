@@ -4,15 +4,15 @@ class SavingsAccount extends Account
 {
 	private double interest;
 	
-	SavingsAccount(double deposit, double interestRate)
+	SavingsAccount(double deposit, double interestRate, int accNum)
 	{
-		super(deposit);
+		super(deposit, accNum);
 		interest = interestRate;
 	}
 	
-	SavingsAccount(double interestRate)
+	SavingsAccount(double interestRate, int accNum)
 	{
-		super();
+		super(accNum);
 		interest = interestRate;
 	}
 	
