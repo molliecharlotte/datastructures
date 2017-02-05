@@ -19,7 +19,9 @@ class CheckingAccount extends Account
 	
 	 public void withdraw(double sum)
 	    {
-		  if(sum < overdraft)
+		 double tempBalance = balance - sum;
+		 
+		 if(tempBalance >= -overdraft)
 		  {
 	    	balance = balance - sum;
 		  }
@@ -31,7 +33,7 @@ class CheckingAccount extends Account
 	  
 	  public boolean isOverdrawn()
 	  {
-		  if(this.getBalance() <= overdraft)
+		  if(this.getBalance() <= -overdraft)
 		  {
 			  return true;
 		  }
