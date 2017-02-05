@@ -5,15 +5,15 @@ class CheckingAccount extends Account
 {
 	private double overdraft;
 	
-	CheckingAccount(double deposit, double od)
+	CheckingAccount(double deposit, double od, int accNum)
 	{
-		super(deposit);
+		super(deposit, accNum);
 		overdraft = od;
 	}
 	
-	CheckingAccount(double od)
+	CheckingAccount(double od, int accNum)
 	{
-		super();
+		super(accNum);
 		overdraft = od;
 	}
 	
