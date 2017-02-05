@@ -1,23 +1,20 @@
 package lab2;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Bank {
 
-	private String name;
 	private ArrayList<Account> bank;
 	
-	public Bank(String bankName)
+	public Bank()
 	{
-		name= bankName;
 		bank = new ArrayList<Account>(0);
 	}
 
     public Account openAccount() 
     {
-    	Account a = new Account();
+    	Account a = new Account(bank.size() + 10000);
     	
     	bank.add(a);
     	
@@ -26,7 +23,9 @@ public class Bank {
 
     public CheckingAccount openChecking(double balance, double limit) 
     {
-    	CheckingAccount a = new CheckingAccount(balance, limit);
+    	int account = bank.size() + 10000;
+    	
+    	CheckingAccount a = new CheckingAccount(balance, limit, account);
     	
     	bank.add(a);
     	
@@ -35,7 +34,9 @@ public class Bank {
 
     public SavingsAccount openSavings (double balance, double interest) 
     {
-    	SavingsAccount a = new SavingsAccount(balance, interest);
+    	int account = bank.size() + 10000;
+    	
+    	SavingsAccount a = new SavingsAccount(balance, interest, account);
     	
     	bank.add(a);
     	
@@ -59,11 +60,6 @@ public class Bank {
     		}
     	}
     }
-    
-    public String getBankName()
-    {
-    	return name;
-    }
 
     public Account getAccount(int accountNumber) 
     {
@@ -77,9 +73,5 @@ public class Bank {
        
        return null;
     }
-    
-    public int getNumAccounts()
-    {
-    	return bank.size();
-    }
+
 }
